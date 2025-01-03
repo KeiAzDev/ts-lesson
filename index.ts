@@ -39,3 +39,9 @@ const coffee = {
   hot: true,
   size: CoffeeSize.TALL
 }
+
+//anyを使うとjsの世界へ戻る
+let anything: any = true;
+anything = 'hello';
+anything = ['aaaa', 213, false];
+anything = 12321;

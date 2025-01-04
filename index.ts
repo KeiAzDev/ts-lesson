@@ -52,3 +52,15 @@ unionType = 'hello';
 unionType.toUpperCase();
 
 let unionTypes: (number|string)[] = [21, 'hello'];
+
+const apple: 'apple' = 'apple'; //literal型 number,booleanでも一緒
+//tsの仕様でconstでは常にこうなります
+let clothSize: 'small' | 'medium' | 'large' = 'large';//enumっぽい
+//enumはデータも作るために基本はこちらの方がいい
+const cloth: {
+  color: string,
+  size: 'small' | 'medium' | 'large',
+} = {
+  color: 'white',
+  size: 'large'
+}

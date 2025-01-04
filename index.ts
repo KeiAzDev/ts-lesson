@@ -45,3 +45,10 @@ let anything: any = true;
 anything = 'hello';
 anything = ['aaaa', 213, false];
 anything = 12321;
+
+let unionType: number | string = 10;
+
+unionType = 'hello';
+unionType.toUpperCase();
+
+let unionTypes: (number|string)[] = [21, 'hello'];

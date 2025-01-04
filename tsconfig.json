@@ -109,12 +109,12 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   // "include": ["index.ts"],
-  "exclude": [
-    "**/compiler.ts",
-    "*.spec.ts",
-    "node_modules"
-  ],
-  "files": [
-    "tmp/compiler.ts"
-  ]
+  // "exclude": [
+  //   "**/compiler.ts",
+  //   "*.spec.ts",
+  //   "node_modules"
+  // ],
+  // "files": [
+  //   "compiler.ts"
+  // ]
 }

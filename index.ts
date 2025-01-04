@@ -66,3 +66,11 @@ const cloth: {
   color: 'white',
   size: 'large'
 }
+
+function add(num1: number, num2: number) {
+  return num1 + num2;
+}
+//never何も返さないという型
+function error(message: string): never {
+  throw new Error(message);
+}

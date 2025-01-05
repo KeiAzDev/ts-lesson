@@ -8,6 +8,11 @@ class Person {
   //   this.age = initAge;
   // }
 
+  static species = 'Homo sapiens';
+  static isAdult(age: number) {
+    if (age > 17) return true;
+    return false;
+  }
   constructor(public name: string, protected age: number) {
 
   }
@@ -21,7 +26,19 @@ class Person {
 }
 
 class Teacher extends Person {
-  constructor(name: string, age: number, public subject: string) {
+  get subject(): string {
+    if(!this._subject) {
+      throw new Error('there is no subject.')
+    }
+    return this._subject;
+  }
+  set subject(value) {
+    if(!value) {
+      throw Error('there is no subject.');
+    }
+    this._subject = value;
+  }
+  constructor(name: string, age: number, public _subject: string) {
     super(name, age);
     super.greeting();
   }
@@ -29,9 +46,16 @@ class Teacher extends Person {
     console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`);
   }
 }
+console.log(Person.isAdult(29));
 
-const teacher = new Teacher('Quill', 30, 'Math');
-teacher.greeting();
+
+
+
+// const teacher = new Teacher('Quill', 30, 'Math');
+// teacher.greeting();
+
+
+
 
 
 

@@ -1,11 +1,10 @@
 "use strict";
 class Person {
-    // name: string;
-    // private age: number;
-    // constructor(initName: string, initAge: number) {
-    //   this.name = initName;
-    //   this.age = initAge;
-    // }
+    static isAdult(age) {
+        if (age > 17)
+            return true;
+        return false;
+    }
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -17,18 +16,38 @@ class Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
     }
 }
+// name: string;
+// private age: number;
+// constructor(initName: string, initAge: number) {
+//   this.name = initName;
+//   this.age = initAge;
+// }
+Person.species = 'Homo sapiens';
 class Teacher extends Person {
-    constructor(name, age, subject) {
+    get subject() {
+        if (!this._subject) {
+            throw new Error('there is no subject.');
+        }
+        return this._subject;
+    }
+    set subject(value) {
+        if (!value) {
+            throw Error('there is no subject.');
+        }
+        this._subject = value;
+    }
+    constructor(name, age, _subject) {
         super(name, age);
-        this.subject = subject;
+        this._subject = _subject;
         super.greeting();
     }
     greeting() {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`);
     }
 }
-const teacher = new Teacher('Quill', 30, 'Math');
-teacher.greeting();
+console.log(Person.isAdult(29));
+// const teacher = new Teacher('Quill', 30, 'Math');
+// teacher.greeting();
 // let person2: Person;
 // const quill = new Person('Quill', 38);
 // quill.greeting();

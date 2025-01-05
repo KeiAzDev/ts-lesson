@@ -8,7 +8,7 @@ class Person {
   //   this.age = initAge;
   // }
 
-  constructor(public name: string, private age: number) {
+  constructor(public name: string, protected age: number) {
 
   }
 
@@ -19,9 +19,26 @@ class Person {
     console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
   }
 }
-let person2: Person;
-const quill = new Person('Quill', 38);
-quill.greeting();
+
+class Teacher extends Person {
+  constructor(name: string, age: number, public subject: string) {
+    super(name, age);
+    super.greeting();
+  }
+  greeting() {
+    console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`);
+  }
+}
+
+const teacher = new Teacher('Quill', 30, 'Math');
+teacher.greeting();
+
+
+
+
+// let person2: Person;
+// const quill = new Person('Quill', 38);
+// quill.greeting();
 //下はthisのお話
 // const anotherQuill = {
 //   name: 'anotherQuill',

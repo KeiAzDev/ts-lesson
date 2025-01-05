@@ -17,9 +17,21 @@ class Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
     }
 }
-let person2;
-const quill = new Person('Quill', 38);
-quill.greeting();
+class Teacher extends Person {
+    constructor(name, age, subject) {
+        super(name, age);
+        this.subject = subject;
+        super.greeting();
+    }
+    greeting() {
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`);
+    }
+}
+const teacher = new Teacher('Quill', 30, 'Math');
+teacher.greeting();
+// let person2: Person;
+// const quill = new Person('Quill', 38);
+// quill.greeting();
 //下はthisのお話
 // const anotherQuill = {
 //   name: 'anotherQuill',

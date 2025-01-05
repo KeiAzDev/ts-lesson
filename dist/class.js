@@ -1,16 +1,28 @@
 "use strict";
 class Person {
-    constructor(initName) {
-        this.name = initName;
+    // name: string;
+    // private age: number;
+    // constructor(initName: string, initAge: number) {
+    //   this.name = initName;
+    //   this.age = initAge;
+    // }
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    incrementAge() {
+        this.age += 1;
     }
     greeting() {
-        console.log(`Hello! My name is ${this.name}`);
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
     }
 }
-const quill = new Person('Quill');
+let person2;
+const quill = new Person('Quill', 38);
 quill.greeting();
-const anotherQuill = {
-    name: 'anotherQuill',
-    anotherGreeting: quill.greeting
-};
-anotherQuill.anotherGreeting();
+//下はthisのお話
+// const anotherQuill = {
+//   name: 'anotherQuill',
+//   greeting: quill.greeting
+// }
+// anotherQuill.greeting();

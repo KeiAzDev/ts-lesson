@@ -54,3 +54,6 @@ function havePet(pet) {
 havePet(new Bird());
 const input = document.getElementById('input'); //型アサーション
 input.value = 'initial input value';
+const designer = {
+    name: 'Quill',
+};

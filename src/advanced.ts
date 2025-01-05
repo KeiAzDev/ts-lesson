@@ -66,3 +66,11 @@ havePet(new Bird());
 
 const input = document.getElementById('input') as HTMLInputElement;//型アサーション
 input.value = 'initial input value';
+
+interface Designer {
+  name: string;
+  [index: string]: string;//これがindex signature
+}
+const designer: Designer = {
+  name: 'Quill',
+}

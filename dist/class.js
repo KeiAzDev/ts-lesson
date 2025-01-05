@@ -40,14 +40,22 @@ class Teacher extends Person {
         }
         this._subject = value;
     }
+    //singletonパターンはコンストラクターにprivvateをつけてstaticで初期化してさらにgetで呼び出す
     constructor(name, age, _subject) {
         super(name, age);
         this._subject = _subject;
         super.greeting();
     }
+    static getInstance() {
+        if (Teacher.instance)
+            return Teacher.instance;
+        Teacher.instance = new Teacher('Quill', 38, 'Math');
+        return Teacher.instance;
+    }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
-teacher.greeting();
+const teacher = Teacher.getInstance();
+const teacher2 = Teacher.getInstance();
+console.log(teacher, teacher2);
 // const teacher = new Teacher('Quill', 30, 'Math');
 // teacher.greeting();
 // let person2: Person;

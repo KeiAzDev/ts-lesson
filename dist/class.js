@@ -14,6 +14,7 @@ class Person {
     }
     greeting() {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
+        this.explainJob();
     }
 }
 // name: string;
@@ -24,6 +25,9 @@ class Person {
 // }
 Person.species = 'Homo sapiens';
 class Teacher extends Person {
+    explainJob() {
+        console.log(`I am a teacher and I teach ${this.subject}`);
+    }
     get subject() {
         if (!this._subject) {
             throw new Error('there is no subject.');
@@ -41,11 +45,9 @@ class Teacher extends Person {
         this._subject = _subject;
         super.greeting();
     }
-    greeting() {
-        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`);
-    }
 }
-console.log(Person.isAdult(29));
+const teacher = new Teacher('Quill', 38, 'Math');
+teacher.greeting();
 // const teacher = new Teacher('Quill', 30, 'Math');
 // teacher.greeting();
 // let person2: Person;

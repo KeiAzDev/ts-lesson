@@ -95,4 +95,8 @@ const downloadedData: DownloadedData = {
 
 console.log(downloadedData.user?.name?.first);//optional chaining
 const userData = downloadedData.user ?? 'no-user';
+type id = DownloadedData['id']
 
+let target: string = 'hello'
+let source: 'hello' = 'hello'
+target = source;

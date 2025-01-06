@@ -1,5 +1,6 @@
 "use strict";
-function copy(value) {
+function copy(value, key) {
+    value[key];
     return value;
 }
-console.log(copy({ name: 'Quill' }));
+console.log(copy({ name: 'Quill' }, 'name'));

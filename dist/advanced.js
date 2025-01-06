@@ -10,9 +10,10 @@ function toUpperCase(x) {
         return x.toUpperCase();
     }
     else {
-        return '';
+        return x;
     }
 }
+const upperHello = toUpperCase('Hello');
 function describeProfile(nomadWorker) {
     console.log(nomadWorker.name);
     if ('role' in nomadWorker) {

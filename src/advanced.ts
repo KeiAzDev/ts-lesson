@@ -19,13 +19,18 @@ type NumberBoolean = number | boolean;
 type StringNumber = string | number;
 type Mix = NumberBoolean & StringNumber;
 
+function toUpperCase(x: string): string;//関数のオーバーロード
+function toUpperCase(x: number): number;//関数のオーバーロード
 function toUpperCase(x: string | number) {
   if (typeof x === 'string') {
     return x.toUpperCase();
   } else {
-    return '';
+    return x;
   }
 }
+const upperHello = toUpperCase('Hello');
+
+
 type NomadWorker = Engineer | Blogger;
 function describeProfile(nomadWorker: NomadWorker) {
   console.log(nomadWorker.name);

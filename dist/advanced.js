@@ -1,4 +1,5 @@
 "use strict";
+var _a, _b, _c;
 //interface EngineerBlogger extends Engineer, Blogger { }
 const quill = {
     name: 'Quill',
@@ -58,3 +59,8 @@ input.value = 'initial input value';
 const designer = {
     name: 'Quill',
 };
+const downloadedData = {
+    id: 1
+};
+console.log((_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first); //optional chaining
+const userData = (_c = downloadedData.user) !== null && _c !== void 0 ? _c : 'no-user';

@@ -13,22 +13,30 @@ function Logging(message) {
 }
 function Component(template, selector) {
     return function (constructor) {
-        const mountedElement = document.querySelector(selector);
-        const instance = new constructor();
-        if (mountedElement) {
-            mountedElement.innerHTML = template;
-            mountedElement.querySelector('h1').textContent = instance.name;
-        }
+        return class extends constructor {
+            constructor(...args) {
+                super(...args);
+                console.log('compo');
+                const mountedElement = document.querySelector(selector);
+                const instance = new constructor();
+                if (mountedElement) {
+                    mountedElement.innerHTML = template;
+                    mountedElement.querySelector("h1").textContent = instance.name;
+                }
+            }
+        };
     };
 }
 //classを定義する際に実行されているもの
 let User = class User {
-    constructor() {
-        this.name = 'Quill';
-        console.log('User was created');
+    constructor(age) {
+        this.age = age;
+        this.name = "Quill";
+        console.log("User was created");
     }
 };
 User = __decorate([
-    Component('<h1>{{name}}</h1>', '#app'),
-    Logging('Logging User')
+    Component("<h1>{{name}}</h1>", "#app"),
+    Logging("Logging User")
 ], User);
+const user1 = new User(32);

@@ -1,8 +1,12 @@
-function Logging(constructor: Function) {
-  console.log('Logging...');
+//decolatorファクトリー
+function Logging(message: string){
+  return function(constructor: Function) {
+    console.log(message);
+  }
 }
+
 //classを定義する際に実行されているもの
-@Logging
+@Logging('Logging User')
 class User {
   name = 'Quill';
   constructor() {

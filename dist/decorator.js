@@ -27,6 +27,11 @@ function Component(template, selector) {
         };
     };
 }
+function PropertyLogging(target, propertyKey) {
+    console.log('propertyLogging');
+    console.log(target);
+    console.log(propertyKey);
+}
 //classを定義する際に実行されているもの
 let User = class User {
     constructor(age) {
@@ -35,6 +40,9 @@ let User = class User {
         console.log("User was created");
     }
 };
+__decorate([
+    PropertyLogging
+], User.prototype, "name", void 0);
 User = __decorate([
     Component("<h1>{{name}}</h1>", "#app"),
     Logging("Logging User")

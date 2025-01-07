@@ -35,6 +35,12 @@ function MethodLogging(target: any, propertyKey: string, descriptor: PropertyDes
   console.log(propertyKey);
   console.log(descriptor);
 }
+function AccessorLogging(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  console.log('AccessorLogging');
+  console.log(target);
+  console.log(propertyKey);
+  console.log(descriptor);
+}
 
 //classを定義する際に実行されているもの
 @Component("<h1>{{name}}</h1>", "#app")
@@ -42,8 +48,15 @@ function MethodLogging(target: any, propertyKey: string, descriptor: PropertyDes
 class User {
   @PropertyLogging
   name = "Quill";
-  constructor(public age: number) {
+  constructor(public _age: number) {
     console.log("User was created");
+  }
+  @AccessorLogging
+  get age() {
+    return this._age;
+  }
+  set age(value) {
+    this._age = value;
   }
   @MethodLogging
   greeting() {

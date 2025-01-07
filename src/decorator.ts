@@ -48,6 +48,12 @@ function AccessorLogging(target: any, propertyKey: string, descriptor: PropertyD
   console.log(propertyKey);
   console.log(descriptor);
 }
+function ParameterLogging(target: any, propertyKey: string, parameterIndex: number) {
+  console.log('ParameterLogging');
+  console.log(target);
+  console.log(propertyKey);
+  console.log(parameterIndex);
+}
 
 //classを定義する際に実行されているもの
 @Component("<h1>{{name}}</h1>", "#app")
@@ -67,8 +73,8 @@ class User {
   }
   @enumerable(false)
   @MethodLogging
-  greeting() {
-    console.log('hello');
+  greeting(@ParameterLogging message: string) {
+    console.log(message);
   }
 }
 

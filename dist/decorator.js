@@ -38,6 +38,13 @@ function MethodLogging(target, propertyKey, descriptor) {
     console.log(propertyKey);
     console.log(descriptor);
 }
+function enumerable(isEnumerable) {
+    return function (target, propertyKey, descriptor) {
+        return {
+            enumerable: isEnumerable
+        };
+    };
+}
 function AccessorLogging(target, propertyKey, descriptor) {
     console.log('AccessorLogging');
     console.log(target);
@@ -68,6 +75,7 @@ __decorate([
     AccessorLogging
 ], User.prototype, "age", null);
 __decorate([
+    enumerable(false),
     MethodLogging
 ], User.prototype, "greeting", null);
 User = __decorate([

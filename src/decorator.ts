@@ -29,6 +29,12 @@ function PropertyLogging(target: any, propertyKey: string) {
   console.log(target);
   console.log(propertyKey);
 }
+function MethodLogging(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  console.log('MethodLogging');
+  console.log(target);
+  console.log(propertyKey);
+  console.log(descriptor);
+}
 
 //classを定義する際に実行されているもの
 @Component("<h1>{{name}}</h1>", "#app")
@@ -38,6 +44,10 @@ class User {
   name = "Quill";
   constructor(public age: number) {
     console.log("User was created");
+  }
+  @MethodLogging
+  greeting() {
+    console.log('hello');
   }
 }
 

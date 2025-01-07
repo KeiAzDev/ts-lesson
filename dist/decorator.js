@@ -11,6 +11,16 @@ function Logging(message) {
         console.log(message);
     };
 }
+function Component(template, selector) {
+    return function (constructor) {
+        const mountedElement = document.querySelector(selector);
+        const instance = new constructor();
+        if (mountedElement) {
+            mountedElement.innerHTML = template;
+            mountedElement.querySelector('h1').textContent = instance.name;
+        }
+    };
+}
 //classを定義する際に実行されているもの
 let User = class User {
     constructor() {
@@ -19,5 +29,6 @@ let User = class User {
     }
 };
 User = __decorate([
+    Component('<h1>{{name}}</h1>', '#app'),
     Logging('Logging User')
 ], User);

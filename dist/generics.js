@@ -39,3 +39,5 @@ fetchData.then(data => {
 const vegetables = ['Tomato', 'Broccoli', 'Asparagus'];
 let tmp;
 let veges;
+let tmp2;
+let tmp3;

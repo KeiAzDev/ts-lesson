@@ -1,4 +1,4 @@
-import { Score } from "./score";
+import { Score } from "./score.js";
 export class Food {
     constructor(element) {
         this.element = element;

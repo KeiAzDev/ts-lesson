@@ -1,4 +1,4 @@
-import { Food } from "./food";
+import { Food } from "./food.js";
 export class Foods {
     get activeElements() {
         this._activeElements = [];

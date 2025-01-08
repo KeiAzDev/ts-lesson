@@ -1,5 +1,5 @@
-import { Scoreable } from "./interfaces";
-import { Foods } from "./foods";
+import { Scoreable } from "./interfaces.js";
+import { Foods } from "./foods.js";
 
 export class Score implements Scoreable {
   private static instance: Score;

@@ -1,4 +1,4 @@
-import { Foods } from "./foods";
+import { Foods } from "./foods.js";
 export class Score {
     get totalScore() {
         const foods = Foods.getInstance();

@@ -1,11 +1,12 @@
 const path = require('path');
 
 module.exports = {
-  mode: "production", // または "production"
+  mode: "development", // または "production"
   entry: './src/food-app/main.ts',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/'
   },
   devtool: 'inline-source-map',
   module: {
